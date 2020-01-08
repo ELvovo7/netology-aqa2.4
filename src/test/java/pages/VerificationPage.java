@@ -12,13 +12,11 @@ public class VerificationPage {
     private SelenideElement codeField = $("[name = 'code']");
     private SelenideElement verifyButton = $("[data-test-id='action-verify']");
 
-    public MyAccountPage validVerify(){
+    public MyAccountPage validVerify() {
         codeField.waitUntil(Condition.visible, 15000);
         codeField.setValue(DataGiven.getUserVerificationCode());
         verifyButton.click();
-        $(withText("Ваши карты")).waitUntil(Condition.visible,15000);
-       return new MyAccountPage();
+        $(withText("Ваши карты")).waitUntil(Condition.visible, 15000);
+        return new MyAccountPage();
     }
-
-
 }

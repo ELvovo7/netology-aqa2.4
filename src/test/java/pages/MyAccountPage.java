@@ -1,48 +1,47 @@
 package pages;
+
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
-import lombok.Data;
-import lombok.Value;
 
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
+
 import java.lang.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-@Value
-@Data
 public class MyAccountPage {
 
     private static SelenideElement transferToFirstCardButton = $("[data-test-id = 'action-deposit']");
     private static SelenideElement transferToSecondCardButton = $$("[data-test-id = 'action-deposit']").get(1);
-    private  static SelenideElement reloadButton = $("[data-test-id = 'action-reload']");
+    private static SelenideElement reloadButton = $("[data-test-id = 'action-reload']");
 
 
-    public MyAccountPage() { }
+    public MyAccountPage() {
+    }
 
-    public TransferPage transferToFirstCard(){
+    public TransferPage transferToFirstCard() {
         transferToFirstCardButton.click();
-        $(withText("Пополнение карты")).waitUntil(Condition.visible,15000);
+        $(withText("Пополнение карты")).waitUntil(Condition.visible, 15000);
         return new TransferPage();
     }
 
-    public TransferPage transferToSecondCard(){
+    public TransferPage transferToSecondCard() {
 
         transferToSecondCardButton.click();
-        $(withText("Пополнение карты")).waitUntil(Condition.visible,15000);
+        $(withText("Пополнение карты")).waitUntil(Condition.visible, 15000);
         return new TransferPage();
     }
-    public MyAccountPage reloadPage(){
+
+    public MyAccountPage reloadPage() {
         reloadButton.click();
         return new MyAccountPage();
     }
 
-    public Integer balance0001(){
+    public Integer balance0001() {
         String text = $(withText("0001")).text();
-        String str = text.substring(27,38);
+        String str = text.substring(text.indexOf(":"), text.lastIndexOf("р"));
         Pattern intsOnly = Pattern.compile("\\d+");
         Matcher makeMatch = intsOnly.matcher(str);
         makeMatch.find();
@@ -52,9 +51,9 @@ public class MyAccountPage {
         return balance0001;
     }
 
-    public Integer balance0002(){
+    public Integer balance0002() {
         String text = $(withText("0002")).text();
-        String str2 = text.substring(27,38);
+        String str2 = text.substring(text.indexOf(":"), text.lastIndexOf("р"));
         Pattern intsOnly = Pattern.compile("\\d+");
         Matcher makeMatch = intsOnly.matcher(str2);
         makeMatch.find();
@@ -63,6 +62,4 @@ public class MyAccountPage {
         int balance0002 = Integer.parseInt(inputInt2);
         return balance0002;
     }
-
-
 }

@@ -1,12 +1,5 @@
 package data;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.Value;
-@Data
-@Value
-//@AllArgsConstructor
-//@NoArgsConstructor
+
 public class DataGiven {
     private static final String USER_LOGIN = "vasya";
     private static final String USER_PASSWORD = "qwerty123";
