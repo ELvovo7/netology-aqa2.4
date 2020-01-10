@@ -4,6 +4,7 @@ public class DataGiven {
     private static final String USER_LOGIN = "vasya";
     private static final String USER_PASSWORD = "qwerty123";
     private static final String USER_VERIFICATION_CODE = "12345";
+    public static final CharSequence sumTransfer = "300"; // задаем сумму перевода
 
     public DataGiven() {
     }
@@ -19,4 +20,6 @@ public class DataGiven {
     public static String getUserVerificationCode() {
         return USER_VERIFICATION_CODE;
     }
+
+    public static CharSequence getSumTransfer() {return sumTransfer;}
 }

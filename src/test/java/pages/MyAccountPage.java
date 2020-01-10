@@ -21,25 +21,24 @@ public class MyAccountPage {
     public MyAccountPage() {
     }
 
-    public TransferPage transferToFirstCard() {
+    public static void transferToFirstCard() {
         transferToFirstCardButton.click();
         $(withText("Пополнение карты")).waitUntil(Condition.visible, 15000);
-        return new TransferPage();
+        new TransferPage();
     }
 
-    public TransferPage transferToSecondCard() {
-
+    public static void transferToSecondCard() {
         transferToSecondCardButton.click();
         $(withText("Пополнение карты")).waitUntil(Condition.visible, 15000);
-        return new TransferPage();
+        new TransferPage();
     }
 
-    public MyAccountPage reloadPage() {
+    public static void reloadPage() {
         reloadButton.click();
-        return new MyAccountPage();
+        new MyAccountPage();
     }
 
-    public Integer balance0001() {
+    public static Integer balance0001() {
         String text = $(withText("0001")).text();
         String str = text.substring(text.indexOf(":"), text.lastIndexOf("р"));
         Pattern intsOnly = Pattern.compile("\\d+");
@@ -51,7 +50,7 @@ public class MyAccountPage {
         return balance0001;
     }
 
-    public Integer balance0002() {
+    public static Integer balance0002() {
         String text = $(withText("0002")).text();
         String str2 = text.substring(text.indexOf(":"), text.lastIndexOf("р"));
         Pattern intsOnly = Pattern.compile("\\d+");
