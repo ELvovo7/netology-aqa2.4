@@ -21,21 +21,18 @@ public class MyAccountPage {
     public MyAccountPage() {
     }
 
-    public static void transferToFirstCard() {
+    public void selectTransferToFirstCard() {
         transferToFirstCardButton.click();
         $(withText("Пополнение карты")).waitUntil(Condition.visible, 15000);
-        new TransferPage();
     }
 
-    public static void transferToSecondCard() {
+    public void selectTransferToSecondCard() {
         transferToSecondCardButton.click();
         $(withText("Пополнение карты")).waitUntil(Condition.visible, 15000);
-        new TransferPage();
     }
 
-    public static void reloadPage() {
+    public void reloadPage() {
         reloadButton.click();
-        new MyAccountPage();
     }
 
     public static Integer balance0001() {

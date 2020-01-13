@@ -17,11 +17,9 @@ public class LoginPage {
         loginButton.shouldBe(Condition.visible);
     }
 
-    public VerificationPage validLogin() {
+    public void validLogin() {
         loginField.setValue(DataGiven.getUserLogin());
         passwordField.setValue(DataGiven.getUserPassword());
         loginButton.click();
-
-        return new VerificationPage();
     }
 }

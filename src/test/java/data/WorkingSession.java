@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class WorkingSession {
 
-    public static void startOfWork() {
+    public void startOfWork() {
         LoginPage loginPage = new LoginPage();
         VerificationPage verificationPage = new VerificationPage();
         open("http://localhost:9999");
