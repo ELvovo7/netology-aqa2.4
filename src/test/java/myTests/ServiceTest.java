@@ -8,12 +8,9 @@ import pages.TransferPage;
 
 public class ServiceTest {
 
-    @BeforeEach
-    public void setUpObject() {
-        WorkingSession st = new WorkingSession();
-        TransferPage tr = new TransferPage();
-        MyAccountPage rl = new MyAccountPage();
-    }
+    WorkingSession st = new WorkingSession();
+    TransferPage tr = new TransferPage();
+    MyAccountPage rl = new MyAccountPage();
 
     @Test
     void shouldLogin() {
